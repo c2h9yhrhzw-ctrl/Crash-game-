@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10131d">
+  <meta name="description" content="A mobile-friendly crash game using virtual credits.">
+  <title>Crash Arena</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">CRASH<span>ARENA</span></a>
+    <div class="account">
+      <span id="balance">Credits: —</span>
+      <button id="logoutBtn" class="secondary hidden" type="button">Log out</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="authPanel" class="panel auth-panel">
+      <h1>Enter the arena</h1>
+      <p class="muted">Create an account or log in to play with virtual credits.</p>
+
+      <form id="authForm">
+        <label for="email">Email</label>
+        <input id="email" type="email" autocomplete="email" required maxlength="254">
+
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password"
+          required minlength="10" maxlength="72">
+
+        <div class="auth-actions">
+          <button type="submit" id="loginBtn">Log in</button>
+          <button type="button" id="registerBtn" class="secondary">Create account</button>
+        </div>
+      </form>
+      <p id="authMessage" class="message" role="status"></p>
+    </section>
+
+    <section id="gamePanel" class="hidden">
+      <div class="game-heading">
+        <div>
+          <p class="eyebrow">VIRTUAL-CREDIT GAME</p>
+          <h1>Crash Arena</h1>
+        </div>
+        <span id="connection" class="status">Connecting…</span>
+      </div>
+
+      <div class="game-screen panel">
+        <div id="roundLabel" class="round-label">Waiting for round</div>
+        <div id="multiplier" class="multiplier">1.00×</div>
+        <p id="gameMessage" class="game-message">Get ready for the next round</p>
+      </div>
+
+      <div class="panel controls">
+        <label for="stake">Bet amount (virtual credits)</label>
+        <input id="stake" type="number" min="1" step="1" value="10">
+
+        <div class="button-row">
+          <button id="betBtn" type="button">Place bet</button>
+          <button id="cashoutBtn" type="button" class="cashout" disabled>
+            Cash out
+          </button>
+        </div>
+
+        <p id="actionMessage" class="message" role="status"></p>
+        <p class="notice">
+          Virtual credits have no cash value. Deposits and withdrawals are not available.
+        </p>
+      </div>
+
+      <div class="panel history">
+        <h2>Recent bets</h2>
+        <div id="historyList" class="history-list">
+          <p class="muted">Log in to load your history.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Crash Arena · Virtual credits only
+  </footer>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
